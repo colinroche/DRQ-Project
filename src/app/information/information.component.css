@@ -1,0 +1,13 @@
+#card h2 {
+    color: rgb(140, 1, 1)
+ }
+ #card h3 {
+     color: rgb(71, 69, 69);
+     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+     font-weight: bold;
+ }
+ #class{
+    height:200px;
+    width:300px;
+    margin-right: 15px;
+}
