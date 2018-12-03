@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { InfoService } from '../info.service';
-import { HttpErrorResponse } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { NgForm } from "@angular/forms";
+import {PostService} from '../services/post.service';
 
 @Component({
   selector: 'app-character',
@@ -10,12 +9,26 @@ import { Router } from '@angular/router';
 })
 export class CharacterComponent implements OnInit {
 
-  character = []
-  constructor(private _infoService: InfoService,
-              private _router: Router) { }
+  constructor(private service:PostService) { }
+
+  onAddPost(form: NgForm) {
+
+    this.service.addPost(form.value.title, form.value.content).subscribe();
+    
+    console.log(form.value);
+    form.resetForm();
+  }
+
 
   ngOnInit() {
-    this._infoService.getCharacter()
+
+
+
+  }
+
+  /*// was for auth guarded character page
+ / ngOnInit() {
+    this._service.getCharacter()
       .subscribe(
         res => this.character = res,
         err => {
@@ -27,6 +40,6 @@ export class CharacterComponent implements OnInit {
           }
         }
       )
-  }
+  }*/
 
 }

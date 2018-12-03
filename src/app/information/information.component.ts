@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { InfoService } from '../info.service';
 
 @Component({
   selector: 'app-information',
@@ -8,15 +7,9 @@ import { InfoService } from '../info.service';
 })
 export class InformationComponent implements OnInit {
 
-  information = []
-  constructor(private _infoService: InfoService) { }
+  constructor() { }
 
   ngOnInit() {
-    this._infoService.getInformation()
-      .subscribe(
-        res => this.information = res,
-        err => console.log(err)
-      )
   }
 
 }
