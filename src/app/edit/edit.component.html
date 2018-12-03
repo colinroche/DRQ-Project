@@ -11,16 +11,41 @@
           >
       </mat-form-field>
       <mat-form-field>
+        <p style="font-weight: 700">Class</p>
         <textarea
           matInput
-          rows="4"
+          rows="1"
           name="content"
           ngModel={{post.content}}
           required
           #content="ngModel">
         </textarea>
-        <mat-error *ngIf="content.invalid">Please enter a post title.</mat-error>
+        <mat-error *ngIf="content.invalid">Please enter a character class.</mat-error>
       </mat-form-field>
+      <mat-form-field>
+          <p style="font-weight: 700">Background</p>
+          <textarea
+            matInput
+            rows="5"
+            name="background"
+            ngModel={{post.background}}
+            required
+            #content="ngModel">
+          </textarea>
+          <mat-error *ngIf="background.invalid">Please enter a character background.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <p style="font-weight: 700">Personality</p>
+            <textarea
+              matInput
+              rows="5"
+              name="personality"
+              ngModel={{post.personality}}
+              required
+              #content="ngModel">
+            </textarea>
+            <mat-error *ngIf="personality.invalid">Please enter a character background.</mat-error>
+          </mat-form-field>
       <button
         mat-raised-button
         color="accent"

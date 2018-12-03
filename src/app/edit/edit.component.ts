@@ -14,7 +14,9 @@ import { NgForm } from "@angular/forms";
 export class EditComponent implements OnInit {
   post : any = [];
   myTitle : String; 
-  myContent : String; 
+  myContent : String;
+  myBackground : String;
+  myPersonality : String;
   constructor(private router:Router, private route: ActivatedRoute, private service:PostService) { }
 
   ngOnInit() {
@@ -29,9 +31,9 @@ export class EditComponent implements OnInit {
     });
   }
   onEditPost(form: NgForm) {
-    this.service.updatePost(this.post._id, form.value.title, form.value.content).subscribe(() =>
+    this.service.updatePost(this.post._id, form.value.title, form.value.content, form.value.background, form.value.personality).subscribe(() =>
     {
-      this.router.navigate(['/list']);
+      this.router.navigate(['/details']);
     });
   }
 

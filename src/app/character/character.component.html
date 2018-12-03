@@ -1,6 +1,13 @@
+<div class="row pt-5"></div>
+  <div class=" mx-auto">
+    <!-- creating the card in which the information page is built on, setting its size and colour-->
+    <div id="card"  class="card rounded-2 text-white mb-3" style="background-color: #133300">
+      <div class="card-header">
+
 <mat-card>
     <form (submit)="onAddPost(postForm)" #postForm="ngForm">
-      <mat-form-field>
+      <h2>Username</h2>
+      <p><mat-form-field>
         <input
           matInput
           type="text"
@@ -9,18 +16,41 @@
           required
           minlength="3"
           #title="ngModel">
-        <mat-error *ngIf="title.invalid">Please enter a post title.</mat-error>
-      </mat-form-field>
+        <mat-error *ngIf="title.invalid">Please Enter Username</mat-error>
+      </mat-form-field></p>
       <mat-form-field>
+        <h3>Class</h3>
         <textarea
           matInput
-          rows="4"
+          rows="1"
           name="content"
           ngModel
           required
           #content="ngModel"></textarea>
-        <mat-error *ngIf="content.invalid">Please enter a post title.</mat-error>
+        <mat-error *ngIf="content.invalid">Please enter Class.</mat-error>
       </mat-form-field>
+      <mat-form-field>
+          <h3>Background </h3>
+          <textarea
+            matInput
+            rows="5"
+            name="background"
+            ngModel
+            required
+            #background="ngModel"></textarea>
+          <mat-error *ngIf="background.invalid">Please enter Background.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+            <h3>Personality</h3>
+            <textarea
+              matInput
+              rows="4"
+              name="personality"
+              ngModel
+              required
+              #personality="ngModel"></textarea>
+            <mat-error *ngIf="personality.invalid">Please enter Personality.</mat-error>
+          </mat-form-field>
       <button
         mat-raised-button
         color="accent"
@@ -28,3 +58,9 @@
     </form>
   </mat-card>
   
+  <div class="card-body">
+        
+    </div>
+  </div>
+</div>
+</div>

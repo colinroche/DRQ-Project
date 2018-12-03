@@ -39,8 +39,9 @@ import { EditComponent } from './edit/edit.component';
     {
       path: 'character',
       component: CharacterComponent,
+      // use for verification on character page
       // when user trys to navigate to this page, guard is activated to insure they are logged in
-      canActivate: [AuthGuard]
+     // canActivate: [AuthGuard]
     },
     {
       path: 'details',

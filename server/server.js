@@ -18,7 +18,9 @@ var userSchema = new Schema({
 })
 var postSchema = new Schema({
     title: String,
-    content: String
+    content: String,
+    background: String,
+    personality: String
 })
 var PostModel = mongoose.model('post', postSchema);
 module.exports = mongoose.model('user', userSchema, 'users')
@@ -36,11 +38,11 @@ app.use(function(req, res, next) {
     next();
     });
     
-app.post('/name', function(req, res){
+/*app.post('/name', function(req, res){
     res.send("Hello you sent " +
     req.body.firstname + " " +
     req.body.lastname);
-})
+})*/
 
 app.get('/', function (req, res) {
    res.send('Hello from Express');
@@ -50,10 +52,14 @@ app.post('/api/posts', function(req, res){
     console.log("post successful");
     console.log(req.body.title);
     console.log(req.body.content);
+    console.log(req.body.background);
+    console.log(req.body.personality);
 
     PostModel.create({
         title: req.body.title,
-        content: req.body.content
+        content: req.body.content,
+        background: req.body.background,
+        personality: req.body.personality
     });
     res.send('Item added');
 
@@ -80,6 +86,8 @@ app.put('/api/posts/:id', function(req, res){
     console.log("Update Post" +req.params.id);
     console.log(req.body.title);
     console.log(req.body.content);
+    console.log(req.body.background);
+    console.log(req.body.personality);
 
     PostModel.findByIdAndUpdate(req.params.id, req.body, 
         function(err, data){
